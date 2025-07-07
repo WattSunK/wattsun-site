@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Cart - WattSun</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #f7b733;
+            padding: 10px 0;
+            text-align: center;
+            color: white;
+        }
+        nav {
+            background: #f7b733;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f7b733;
+            color: white;
+        }
+        .total {
+            text-align: right;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .actions {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .btn {
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #f7b733;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #d89e26;
+        }
+    </style>
+</head>
+<body>
+<header>
+<h1>WattSun Solar</h1>
+</header>
+<nav><a href="index.html">Home</a><a href="solutions.html">Solutions</a><a href="shop.html">Shop</a><a href="projects.html">Projects</a><a href="financing.html">Financing</a><a href="contact.html">Contact</a><a href="cart.html">🛒 Cart</a></nav>
+<div class="container">
+<h2>Your Cart</h2>
+<table id="cartTable">
+<thead>
+<tr>
+<th>Product</th>
+<th>Total Price</th>
+<th>Deposit</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<div class="total" id="totalAmount">Total Deposit: KES 0</div>
+<div class="actions">
+<button class="btn">Proceed to Checkout</button>
+</div>
+</div>
+<script>
+        const cartTable = document.querySelector("#cartTable tbody");
+        const totalDisplay = document.getElementById("totalAmount");
+
+        function loadCart() {
+            let items = JSON.parse(localStorage.getItem("cart")) || [];
+            let total = 0;
+            cartTable.innerHTML = "";
+            items.forEach(item => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>KES ${item.price.toLocaleString()}</td>
+                    <td>KES ${item.deposit.toLocaleString()}</td>
+                `;
+                total += parseFloat(item.deposit);
+                cartTable.appendChild(row);
+            });
+            totalDisplay.innerText = "Total Deposit: KES " + total.toLocaleString();
+        }
+
+        window.onload = loadCart;
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Shop - WattSun</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #f7b733;
+            padding: 10px 0;
+            text-align: center;
+            color: white;
+        }
+        nav {
+            background: #f7b733;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 30px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .item {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        .item h3 {
+            margin: 10px 0;
+        }
+        .item p {
+            font-size: 14px;
+        }
+        .item input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .item button {
+            background: #f7b733;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .item button:hover {
+            background-color: #d89e26;
+        }
+    </style>
+</head>
+<body>
+<header>
+<h1>WattSun Solar</h1>
+</header>
+<nav><a href="index.html">Home</a><a href="solutions.html">Solutions</a><a href="shop.html">Shop</a><a href="projects.html">Projects</a><a href="financing.html">Financing</a><a href="contact.html">Contact</a><a href="cart.html">🛒 Cart</a></nav>
+<div class="container">
+<h2>Available Solar Systems</h2>
+<p style="text-align:center; font-style:italic; color:#666;">Note: A minimum deposit of 50% is required for installation to commence.</p><div class="grid">
+<div class="item">
+<h3>1 kW Solar System</h3>
+<p>Total Price: KES 150,000</p>
+<input id="dep1" placeholder="Enter your deposit (KES)" type="number"/>
+<button onclick="addToCart('1 kW Solar System', 150000, 'dep1')">Add to Cart</button>
+</div>
+<div class="item">
+<h3>3 kW Solar System</h3>
+<p>Total Price: KES 400,000</p>
+<input id="dep3" placeholder="Enter your deposit (KES)" type="number"/>
+<button onclick="addToCart('3 kW Solar System', 400000, 'dep3')">Add to Cart</button>
+</div>
+<div class="item">
+<h3>6 kW Solar System</h3>
+<p>Total Price: KES 700,000</p>
+<input id="dep6" placeholder="Enter your deposit (KES)" type="number"/>
+<button onclick="addToCart('6 kW Solar System', 700000, 'dep6')">Add to Cart</button>
+</div>
+<div class="item">
+<h3>9 kW Solar System</h3>
+<p>Total Price: KES 1,050,000</p>
+<input id="dep9" placeholder="Enter your deposit (KES)" type="number"/>
+<button onclick="addToCart('9 kW Solar System', 1050000, 'dep9')">Add to Cart</button>
+</div>
+<div class="item"><h3>450W Monocrystalline Solar Panel</h3><p>High efficiency solar module for home &amp; industrial use.</p><p>Total Price: KES 29,000</p><input id="dep_panel" placeholder="Enter your deposit (KES)" type="number"/><button onclick="addToCart('450W Monocrystalline Solar Panel', 29000, 'dep_panel')">Add to Cart</button></div><div class="item"><h3>Battery 24V 100Ah</h3><p>LiFePO₄ Battery 24V 100Ah – Safe lithium storage with long life and fast charge.</p><p>Total Price: KES 60,000</p><input id="dep_batt24" placeholder="Enter your deposit (KES)" type="number"/><button onclick="addToCart('Battery 24V 100Ah', 60000, 'dep_batt24')">Add to Cart</button></div><div class="item"><h3>Solar Cleaning Kit</h3><p>Essential tools for keeping your system at peak efficiency.</p><p>Total Price: KES 4,500</p><input id="dep_cleaning" placeholder="Enter your deposit (KES)" type="number"/><button onclick="addToCart('Solar Cleaning Kit', 4500, 'dep_cleaning')">Add to Cart</button></div><div class="item"><h3>5kW Inverter</h3><p>Seamlessly manage solar and grid power with hybrid tech.</p><p>Total Price: KES 85,000</p><input id="dep_inv5kw" placeholder="Enter your deposit (KES)" type="number"/><button onclick="addToCart('5kW Inverter', 85000, 'dep_inv5kw')">Add to Cart</button></div></div>
+</div>
+<script>
+        function addToCart(item, price, inputId) {
+            const deposit = document.getElementById(inputId).value;
+            if (!deposit || isNaN(deposit) || deposit <= 0) {
+                alert("Please enter a valid deposit amount.");
+                return;
+            }
+            alert("Added to cart:\n" + item + "\nDeposit: KES " + parseInt(deposit).toLocaleString());
+            // Here you'd normally use localStorage or a backend call to add this to a real cart
+        }
+    </script>
+</body>
+</html>
