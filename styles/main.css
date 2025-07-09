@@ -120,4 +120,27 @@ main {
   main {
     padding: 0.8rem 0.4rem;
   }
+}nav ul {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 1.5rem 0 1.2rem 0;
+}
+
+nav ul li {
+  display: block;
+}
+
+nav ul a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+nav ul a:hover {
+  color: #047857;
 }
